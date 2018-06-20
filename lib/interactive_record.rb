@@ -64,8 +64,6 @@ class InteractiveRecord
     end
     if value.class == "String"
       value = "'#{value}'"
-
-
     end
     sql = "SELECT * FROM #{self.table_name} WHERE #{key} = #{value}"
     student = DB[:conn].execute(sql)
