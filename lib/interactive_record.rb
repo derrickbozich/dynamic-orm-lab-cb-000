@@ -63,7 +63,7 @@ class InteractiveRecord
       key, value = k, v
     end
     if value.class == "String"
-      value = "'value'"
+      value = "'#{value}'"
     else
 
     end
