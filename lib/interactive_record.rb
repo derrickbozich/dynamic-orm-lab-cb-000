@@ -64,7 +64,7 @@ class InteractiveRecord
     end
     if value.class == "String"
       value = "'#{value}'"
-    else
+
 
     end
     sql = "SELECT * FROM #{self.table_name} WHERE #{key} = #{value}"
