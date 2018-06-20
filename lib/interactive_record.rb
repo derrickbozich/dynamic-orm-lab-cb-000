@@ -57,23 +57,23 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
 
-  # def self.find_by(attribute)
-  #   key, value = nil, nil
-  #   attribute.each do |k, v|
-  #     key, value = k, v
-  #   end
-  #   if value.class == "String"
-  #     value = "'#{value}'"
-  #   end
-  #   sql = "SELECT * FROM #{self.table_name} WHERE #{key} = #{value}"
-  #   student = DB[:conn].execute(sql)
-  # end
+  def self.find_by(attribute)
+    key, value = nil, nil
+    attribute.each do |k, v|
+      key, value = k, v
+    end
+    if value.class == String
+      value = "'#{value}'"
+    end
+    sql = "SELECT * FROM #{self.table_name} WHERE #{key} = #{value}"
+    student = DB[:conn].execute(sql)
+  end
 
-  def self.find_by(attribute_hash)
-  value = attribute_hash.values.first
-  formatted_value = value.class == Fixnum ? value : "'#{value}'"
-  sql = "SELECT * FROM #{self.table_name} WHERE #{attribute_hash.keys.first} = #{formatted_value}"
-  DB[:conn].execute(sql)
+  # def self.find_by(attribute_hash)
+  # value = attribute_hash.values.first
+  # formatted_value = value.class == Fixnum ? value : "'#{value}'"
+  # sql = "SELECT * FROM #{self.table_name} WHERE #{attribute_hash.keys.first} = #{formatted_value}"
+  # DB[:conn].execute(sql)
 end
 
 
