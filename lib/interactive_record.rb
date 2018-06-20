@@ -25,10 +25,14 @@ class InteractiveRecord
     attr_accessor column.to_sym
   end
 
-  def initialize(options = {})
+  def initialize(options={})
     options.each do |key, value|
       self.send("#{key}=", value)
     end
+  end
+
+  def table_name_for_insert
+    self.class.table_name
   end
 
 
