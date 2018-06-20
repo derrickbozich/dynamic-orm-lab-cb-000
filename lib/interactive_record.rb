@@ -58,8 +58,8 @@ class InteractiveRecord
 
   def self.find_by(attribute)
     key, value = nil, nil
-    attribute.each do |key, value|
-
+    attribute.each do |k, v|
+      key, value = k, v
     end
 
     sql = "SELECT * FROM #{self.table_name} WHERE #{}  = ?"
