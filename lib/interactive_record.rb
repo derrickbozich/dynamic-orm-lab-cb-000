@@ -40,8 +40,8 @@ class InteractiveRecord
   end
 
   def values_for_insert
-    self.column_names.each do |column|
       values = []
+    self.column_names.each do |column|
       values << self.send(column) unless self.send(column).nil?
     end
     values.join(", ")
