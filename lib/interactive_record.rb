@@ -61,7 +61,7 @@ class InteractiveRecord
     attribute.each do |k, v|
       key, value = k, v
     end
-
+    binding.pry
     sql = "SELECT * FROM #{self.table_name} WHERE #{key} = #{value}"
     DB[:conn].execute(sql)
   end
