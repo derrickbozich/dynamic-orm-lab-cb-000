@@ -62,6 +62,11 @@ class InteractiveRecord
     attribute.each do |k, v|
       key, value = k, v
     end
+    if value.class == "String"
+      value = "'value'"
+    else
+
+    end
     sql = "SELECT * FROM #{self.table_name} WHERE #{key} = #{value}"
     student = DB[:conn].execute(sql)
     binding.pry
